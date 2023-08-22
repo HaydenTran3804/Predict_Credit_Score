@@ -7,14 +7,14 @@ from plotly.subplots import make_subplots
 
 st.set_page_config(page_title='MainBoard',
                    page_icon=':bar_chart:',layout='wide')
-df = pd.read_csv('C:\APython\df_train.csv')
+df = pd.read_csv('df_train.csv')
 df = df.set_index('Index')
 chosen_col = ['Outstanding_Debt','Interest_Rate','Num_Credit_Card'
     ,'Changed_Credit_Limit','Num_of_Delayed_Payment','Annual_Income']
-occupation_df = pd.read_csv('C:\APython\occupation.csv')
+occupation_df = pd.read_csv('occupation.csv')
 df['Occupation'] = occupation_df['Occupation']
 
-with open('C:\APython\style.css') as f:
+with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>',unsafe_allow_html=True)
 
 st.header('Credit Score DashBoard')
