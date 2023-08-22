@@ -7,8 +7,6 @@ from plotly.subplots import make_subplots
 
 st.set_page_config(page_title='MainBoard',
                    page_icon=':bar_chart:',layout='wide')
-
-from pages import PredictBoard
 df = pd.read_csv('C:\APython\df_train.csv')
 df = df.set_index('Index')
 chosen_col = ['Outstanding_Debt','Interest_Rate','Num_Credit_Card'
