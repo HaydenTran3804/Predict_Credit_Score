@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from dash.exceptions import PreventUpdate
 
+st.set_page_config(layout='centered')
 df = pd.read_csv('df_train.csv')
 df = df.set_index('Index')
 chosen_col = ['Outstanding_Debt','Interest_Rate','Num_Credit_Card'
