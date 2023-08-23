@@ -4,7 +4,6 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from dash.exceptions import PreventUpdate
-
 st.set_page_config(layout='centered')
 df = pd.read_csv('df_train.csv')
 df = df.set_index('Index')
@@ -22,7 +21,7 @@ df['Occupation'] = occupation_df['Occupation']
 st.title('Predict Credit Score')
 values = []
 for _ in chosen_col:
-    value = st.number_input('Input for Outstanding_Debt: from 0 to 4998',
+    value = st.number_input(f'Input for {_}: from {round(min(df[_]))} to {round(max(df[_]))}',
                             max_value=round(max(df[_])),min_value=round(min(df[_])))
     values.append(value)
 
@@ -34,7 +33,7 @@ with col1:
 if value_button:
     if None not in values:
         with col2:
-            st.header(model.predict(values.reshape((1,-1))))
+            st.header(model.predict(values.reshape((1,-1)))[0])
     else:
         st.header('Not enough data to predict')
 else:
