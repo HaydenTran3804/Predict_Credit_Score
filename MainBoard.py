@@ -21,7 +21,7 @@ st.header('Credit Score DashBoard')
 
 value = st.multiselect(
         "Filtration:",
-        options=['Good','Standard','Poor'],
+        options=['Good','Standard','Poor','ALL'],
         default=['Good','Standard','Poor']
     )
 dff = df[df['Credit_Score'].isin(value)]
@@ -37,7 +37,7 @@ fig_box.update_layout(
         title_font_size=8
     )
 st.plotly_chart(fig_box,use_container_width=True)
-left_bottom,right_bottom = st.columns([1,2])
+left_bottom,right_bottom = st.columns([1,1.5])
 occupation = dff['Occupation'].value_counts()
 with left_bottom:
     tree_map = px.treemap(data_frame=occupation, names=occupation.index,
@@ -50,16 +50,16 @@ with left_bottom:
     left_bottom.plotly_chart(tree_map)
 
 with right_bottom:
-    left,right = st.columns(2)
+    left,right = st.columns([1,1])
     hist_1 = px.histogram(data_frame=dff, x='Occupation', color='Credit_Score', barmode='group')
     hist_2 = px.histogram(data_frame=dff, x='Credit_Score', color='Credit_Score', barmode='group')
     hist_1.update_layout(
         height=270,
-    width=500,
+        width=400,
     )
     hist_2.update_layout(
         height=270,
-    width=500,
+        width=300,
     )
     left.plotly_chart(hist_1)
     right.plotly_chart(hist_2)
