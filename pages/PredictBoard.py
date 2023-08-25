@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
-from dash.exceptions import PreventUpdate
 st.set_page_config(layout='centered')
 df = pd.read_csv('df_train.csv')
 df = df.set_index('Index')
@@ -18,6 +17,11 @@ model.fit(x_train,y_train)
 occupation_df = pd.read_csv('occupation.csv')
 df['Occupation'] = occupation_df['Occupation']
 
+descript = f'''
+I built this DashBoard to predict the Credit Score by typing your customers' information here. I chose these features because \
+they had the significant effects on Credit Score
+'''
+st.header(descript)
 st.title('Predict Credit Score')
 values = []
 for _ in chosen_col:
