@@ -11,8 +11,6 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 from sklearn import tree
 from sklearn.tree import export_graphviz
-from six import StringIO
-from IPython.display import Image
 import statsmodels.api as sm
 from sklearn.metrics import precision_recall_fscore_support, confusion_matrix, classification_report, ConfusionMatrixDisplay
 from sklearn.model_selection import StratifiedKFold
