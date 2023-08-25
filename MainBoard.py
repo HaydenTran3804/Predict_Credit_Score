@@ -1,21 +1,15 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import numpy as np
 from plotly.subplots import make_subplots
-import matplotlib as plt
-import seaborn as sns
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 from sklearn import tree
 from sklearn.tree import export_graphviz
-import statsmodels.api as sm
 from sklearn.metrics import precision_recall_fscore_support, confusion_matrix, classification_report, ConfusionMatrixDisplay
 from sklearn.model_selection import StratifiedKFold
-from sklearn.model_selection import cross_val_score, cross_val_predict
-from sklearn import preprocessing, metrics
 st.set_page_config(page_title='MainBoard',
                    page_icon=':bar_chart:',layout='wide')
 df = pd.read_csv('df_train.csv')
