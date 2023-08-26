@@ -1,7 +1,7 @@
 span.css-10trblm.e1nzilvr0{
     color:red;
-    padding-left:550px;
-    margin-top:0;
+    display:grid;
+    justify-content:center;
 }
 div.user-select-none.svg-container{
     margin-left:0px;
