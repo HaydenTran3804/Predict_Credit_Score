@@ -12,11 +12,12 @@ from sklearn import tree
 from sklearn.tree import export_graphviz
 from sklearn.metrics import precision_recall_fscore_support, confusion_matrix, classification_report, ConfusionMatrixDisplay
 from sklearn.model_selection import StratifiedKFold
-st.set_page_config(layout='wide')
+st.set_page_config(page_title='MainBoard',
+                   page_icon=':bar_chart:',layout='wide')
 st.header('Credit Score DashBoard')
-df = pd.read_csv('C:\AProgramming\APython\df_train.csv')
+df = pd.read_csv('df_train.csv')
 df = df.set_index('Index')
-occupation_df = pd.read_csv('C:\AProgramming\APython\occupation.csv')
+occupation_df = pd.read_csv('occupation.csv')
 df['Occupation'] = occupation_df['Occupation']
 #######################################################################################################################
 value = st.multiselect(
