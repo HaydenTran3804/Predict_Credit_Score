@@ -18,8 +18,8 @@ occupation_df = pd.read_csv('occupation.csv')
 df['Occupation'] = occupation_df['Occupation']
 
 descript = f'''
-I built this DashBoard to predict the Credit Score by typing your customers' information here. I chose these features because \
-they had the significant effects on Credit Score
+I've created a user interface (UI) for predicting credit scores by entering your customer's information.\
+These particular features were chosen due to their notable influence on determining credit scores.
 '''
 st.header(descript)
 st.title('Predict Credit Score')
