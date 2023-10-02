@@ -26,9 +26,9 @@ value = st.multiselect(
         default=['Good','Standard','Poor']
     )
 dff = df[df['Credit_Score'].isin(value)]
-choice = st.selectbox("Select",
-             options=["Important Features","Occupations","Correlation among numeric variables","Picture of the Tree"
-                      ,"Confusion Matrix of Decision Tree"],
+choice = st.selectbox("Select Visualization",
+             options=["Important Features","Occupations","Correlation among numeric variables","Decision Tree Diagram"
+                      ,"Decision Tree Confusion Matrix"],
              )
 
 if choice == "Important Features":
@@ -79,7 +79,7 @@ elif choice == "Correlation among numeric variables":
     ax.xaxis.set_tick_params(labelsize=5,rotation = 80)
     ax.yaxis.set_tick_params(labelsize = 5)
     st.pyplot(fig_heatmap)
-elif choice == "Picture of the Tree":
+elif choice == "Decision Tree Diagram":
     x = dff.select_dtypes(include='number')
     y = dff['Credit_Score'].replace({'Good': 2, 'Standard': 1, 'Poor': 0})
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
@@ -91,7 +91,7 @@ elif choice == "Picture of the Tree":
     y_tree.replace({2: 'Good', 1: 'Standard', 0: 'Poor'}, inplace=True)
     dot_data = tree.export_graphviz(DT_model, feature_names=xc, class_names=y, filled=True, impurity=True)
     st.graphviz_chart(dot_data, use_container_width=True)
-elif choice == "Confusion Matrix of Decision Tree":
+elif choice == "Decision Tree Confusion Matrix":
     x = dff.select_dtypes(include='number')
     y = dff['Credit_Score'].replace({'Good': 2, 'Standard': 1, 'Poor': 0})
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
